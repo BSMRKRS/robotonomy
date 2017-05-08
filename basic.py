@@ -10,11 +10,11 @@ RPL.pinMode(17,RPL.INPUT)
 RPL.pinMode(18,RPL.INPUT)
 RPL.pinMode(19,RPL.INPUT)
 
-global tState = time.time()
+tState = time.time()
 while True:
     global tState
     if time.time() - tState > 0.5:
         print RPL.digitalRead(back_sensor)
         print RPL.digitalRead(starboard_sensor)
         print RPL.digitalRead(port_sensor)
-            tState = time.time()
+        tState = time.time()
