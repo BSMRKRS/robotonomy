@@ -26,7 +26,7 @@
 #
 #******************************************************************************
 
-#import serial 		# import the pyser library
+import serial 		# import the pyser library
 #import pigpio		# import the pigpio library
 import time		# import the time library
 
@@ -86,7 +86,6 @@ def putPacket(cmd, buffr, plen):
     chk += int(buffr[i])
 
   packet = bytearray([SOH, myaddr, cmd, plen]) + buffr + bytearray([chk&255, EOT])
-  print packet
 
   ser.write(packet)
 
