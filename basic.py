@@ -14,7 +14,7 @@ global tState = time.time()
 while True:
     global tState
     if time.time() - tState > 0.5:
-        print RPL.digitalRead(back_sensor)
-        print RPL.digitalRead(starboard_sensor)
-        print RPL.digitalRead(port_sensor)
+        print RPL.readDistance(back_sensor)
+        print RPL.readDistance(starboard_sensor)
+        print RPL.readDistance(port_sensor)
             tState = time.time()
