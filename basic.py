@@ -30,7 +30,7 @@ def userInterface():
   print("\033c")
   rightSensor = RPL.digitalRead(starboard_sensor)
   leftSensor = RPL.digitalRead(port_sensor)
-  backSensor = RPL. digitalRead(back_sensor)
+  backSensor = RPL.digitalRead(back_sensor)
   print "Right: %d" %rightSensor
   print "Left: %d"  %leftSensor
   print "Back: %d"  %backSensor
