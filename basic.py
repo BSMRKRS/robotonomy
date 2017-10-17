@@ -27,7 +27,7 @@ def post(interval = 0.5):
     tState = time.time()
 
 def userInterface():
-  clear()
+  print("\033c")
   rightSensor = RPL.readDistance(starboard_sensor)
   leftSensor = RPL.readDistance(port_sensor)
   backSensor = RPL. readDistance(back_sensor)
