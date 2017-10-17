@@ -11,6 +11,7 @@ RPL.pinMode(18,RPL.INPUT)
 RPL.pinMode(19,RPL.INPUT)
 
 def userInterface():
+  print("\033c")
   rightSensor = RPL.digitalRead(starboard_sensor)
   leftSensor = RPL.digitalRead(port_sensor)
   backSensor = RPL.digitalRead(back_sensor)
