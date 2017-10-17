@@ -28,9 +28,9 @@ def post(interval = 0.5):
 
 def userInterface():
   print("\033c")
-  rightSensor = RPL.readDistance(starboard_sensor)
-  leftSensor = RPL.readDistance(port_sensor)
-  backSensor = RPL. readDistance(back_sensor)
+  rightSensor = RPL.digitalRead(starboard_sensor)
+  leftSensor = RPL.digitalRead(port_sensor)
+  backSensor = RPL. digitalRead(back_sensor)
   print "Right: %d" %rightSensor
   print "Left: %d"  %leftSensor
   print "Back: %d"  %backSensor
