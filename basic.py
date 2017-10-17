@@ -21,7 +21,7 @@ def userInterface():
 
 tState = time.time()
 
-def post(interval = 0.5):
+def post(interval = 2):
   global tState
   if time.time() - tState > interval:
     userInterface()
