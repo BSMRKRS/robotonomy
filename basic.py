@@ -27,12 +27,12 @@ def post(interval = 0.5):
     tState = time.time()
 
 def userInterface():
-  rightSensor = RPL.digitalRead(starboard_sensor)
-  leftSensor = RPL.digitalRead(port_sensor)
-  backSensor = RPL.digitalRead(back_sensor)
-  print "Right: %d" %rightSensor
-  print "Left: %d"  %leftSensor
-  print "Back: %d"  %backSensor
+    rightSensor = RPL.digitalRead(starboard_sensor)
+    leftSensor = RPL.digitalRead(port_sensor)
+    backSensor = RPL.digitalRead(back_sensor)
+    print "Right: %d" %rightSensor
+    print "Left: %d"  %leftSensor
+    print "Back: %d"  %backSensor
 
 while True:
     post()
