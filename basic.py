@@ -14,14 +14,15 @@ RPL.pinMode(19,RPL.INPUT)
 
 def userInterface():
   print("\033c")
-  analogue = RPL.readDistance(analogue_pin)
   rightSensor = RPL.digitalRead(starboard_sensor)
   leftSensor = RPL.digitalRead(port_sensor)
   backSensor = RPL.digitalRead(back_sensor)
-  print "LeftAn: %d" %analogue
   print "Right: %d" %rightSensor
   print "Left: %d"  %leftSensor
   print "Back: %d"  %backSensor
+  analogue = RPL.readDistance(analogue_pin)
+  print "LeftAn: %d" %analogue
+
 
 tState = time.time()
 
