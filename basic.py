@@ -2,7 +2,7 @@ from setup import RPL
 import post_to_web as PTW # see post_to_web.py for instructions
 import time as time
 #sensors
-analogue = 16
+analogue_pin = 16
 back_sensor = 17
 starboard_sensor = 18
 port_sensor = 19
@@ -14,7 +14,7 @@ RPL.pinMode(19,RPL.INPUT)
 
 def userInterface():
   print("\033c")
-  analogue = RPL.readDistance(analogue)
+  analogue = RPL.readDistance(analogue_pin)
   rightSensor = RPL.digitalRead(starboard_sensor)
   leftSensor = RPL.digitalRead(port_sensor)
   backSensor = RPL.digitalRead(back_sensor)
