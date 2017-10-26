@@ -133,8 +133,10 @@ def logic(history): #With four binary sensors, there are 16 possible scenarios.
 ########## RUN ###########
 ##########################
 
+history = []
 
 def sensorRead(): #reads the digital sensor inputs and contains movement autonomy
+    global history
     sensors = []
     sensors.append(RPL.digitalRead(front_sensor_pin))
     sensors.append(RPL.digitalRead(starboard_sensor_pin))
