@@ -31,6 +31,27 @@ RPL.pinMode(19,RPL.INPUT)
 def stopAll():
     RPL.servoWrite(left_servo_pin,1500)
     RPL.servoWrite(right_servo_pin,1500)
+def gui(sensor):
+    if sensor[0] == 0:
+        print """____"""
+    else:
+        print"""    """
+    if sensor[1] == 0 and sensor[3] == 0:
+        print"""|   |"""
+        print"""|   |"""
+    elif sensor[1] == 1 and sensor[3] == 0:
+        print"""    |"""
+        print"""    |"""
+    elif sensor[1] == 0 and sensor[3] == 1:
+        print"""|    """
+        print"""|    """
+    else:
+        print
+        print
+    if sensor[2] == 0:
+        print """----"""
+    else:
+        print """    """
 
 def userInterface(): #reads the digital sensor inputs and contains movement autonomy
     print("\033c")
@@ -44,6 +65,7 @@ def userInterface(): #reads the digital sensor inputs and contains movement auto
     print "Right: %d" %starboardSensorRead
     print "Back: %d"  %backSensorRead
     print "Left: %d"  %portSensorRead
+    gui(sensors)
 
 #######################
 ######## Logic ########
