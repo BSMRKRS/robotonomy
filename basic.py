@@ -46,6 +46,7 @@ def userInterface(): #reads the digital sensor inputs and contains movement auto
       con.right()
       time.sleep(0.5)
       con.forward()
+      time.sleep(0.5)
       con.left()
       time.sleep(0.5)
       print "searching for wall"
