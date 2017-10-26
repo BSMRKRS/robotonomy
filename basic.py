@@ -43,7 +43,7 @@ def gui(sensor): #Draws a visual representation of the cars surroundings
     print "Back: %d"  %backSensorRead
     print "Left: %d"  %portSensorRead
     if sensor[0] == 0:
-        print """____"""
+        print """ ___"""
     else:
         print"""    """
     if sensor[1] == 0 and sensor[3] == 0:
@@ -59,7 +59,7 @@ def gui(sensor): #Draws a visual representation of the cars surroundings
         print
         print
     if sensor[2] == 0:
-        print """----"""
+        print """ ---"""
     else:
         print """    """
 
