@@ -123,7 +123,7 @@ def logic(history): #With four binary sensors, there are 16 possible scenarios.
     else: #No walls/points of reference.
         print "No Wall Aquired. Finding Wall."
         con.forward()
-    if for i in history i == history[0]:
+    if for i in history i == history[0] and history[11,0] == 0:
         print "Error: No Change in 3 seconds. Stopping"
         stopAll()
         startStop()
