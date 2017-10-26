@@ -19,7 +19,7 @@ right_servo_pin = 1
 
 #pin setup
 RPL.pinMode(left_servo_pin,RPL.OUTPUT)
-RPl.pinMode(right_servo_pin,RPL.OUTPUT)
+RPL.pinMode(right_servo_pin,RPL.OUTPUT)
 RPL.pinMode(16,RPL.INPUT)
 RPL.pinMode(17,RPL.INPUT)
 RPL.pinMode(18,RPL.INPUT)
