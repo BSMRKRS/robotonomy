@@ -72,10 +72,10 @@ def left():
 
 def forward_right():
   RPL.servoWrite(motorL,motorL_forward)
-  RPL.servoWrite(motorR,1500)
+  RPL.servoWrite(motorR,r_speed_conversion(40))
 
 def forward_left():
-  RPL.servoWrite(motorL,1500)
+  RPL.servoWrite(motorL,l_speed_conversion(40))
   RPL.servoWrite(motorR,motorR_forward)
 
 def backward_right():
