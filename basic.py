@@ -46,6 +46,8 @@ def userInterface(): #reads the digital sensor inputs and contains movement auto
       con.right()
       time.sleep(0.5)
       con.forward()
+      con.left()
+      time.sleep(0.5)
       print "searching for wall"
   elif starboardSensorRead == 0 and frontSensorRead == 1:
       con.forward
