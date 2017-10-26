@@ -4,7 +4,7 @@ import time as time
 import control as con
 
 #####################
-#########PINS########
+######## PIN ########
 #####################
 
 #sensor pins
@@ -27,14 +27,14 @@ RPL.pinMode(front_sensor_pin,RPL.INPUT)
 
 
 ##########################
-#####control functions####
+#### CONTROL FUNCTIONS ###
 ##########################
 def stopAll(): #Stops the vehicle
     RPL.servoWrite(left_servo_pin,1500)
     RPL.servoWrite(right_servo_pin,1500)
 
 ##########################
-##Graphic User Interface##
+# GRAPHIC USER INTERFACE #
 ##########################
 def gui(sensor): #Draws a visual representation of the cars surroundings
     print("\033c")
@@ -64,7 +64,7 @@ def gui(sensor): #Draws a visual representation of the cars surroundings
         print """    """
 
 #######################
-######## Logic ########
+######## LOGIC ########
 #######################
 def logic(history): #With four binary sensors, there are 16 possible scenarios.
     sensors = history[-1]
@@ -130,7 +130,7 @@ def logic(history): #With four binary sensors, there are 16 possible scenarios.
 
 
 ##########################
-########## Run ###########
+########## RUN ###########
 ##########################
 
 
