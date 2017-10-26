@@ -2,6 +2,7 @@ from setup import RPL
 import post_to_web as PTW # see post_to_web.py for instructions
 import time as time
 import control as con
+
 #####################
 #########PINS########
 #####################
@@ -19,10 +20,10 @@ right_servo_pin = 1
 #pin setup
 RPL.pinMode(left_servo_pin,RPL.OUTPUT)
 RPL.pinMode(right_servo_pin,RPL.OUTPUT)
-RPL.pinMode(16,RPL.INPUT)
-RPL.pinMode(17,RPL.INPUT)
-RPL.pinMode(18,RPL.INPUT)
-RPL.pinMode(19,RPL.INPUT)
+RPL.pinMode(back_sensor_pin,RPL.INPUT)
+RPL.pinMode(starboard_sensor_pin,RPL.INPUT)
+RPL.pinMode(port_sensor_pin,RPL.INPUT)
+RPL.pinMode(front_sensor_pin,RPL.INPUT)
 
 
 ##########################
@@ -32,6 +33,9 @@ def stopAll(): #Stops the vehicle
     RPL.servoWrite(left_servo_pin,1500)
     RPL.servoWrite(right_servo_pin,1500)
 
+##########################
+##Graphic User Interface##
+##########################
 def gui(sensor): #Draws a visual representation of the cars surroundings
     print("\033c")
     print "Front: %d" %frontSensorRead
@@ -62,7 +66,8 @@ def gui(sensor): #Draws a visual representation of the cars surroundings
 #######################
 ######## Logic ########
 #######################
-def logic(sensors):
+def logic(history): #With four binary sensors, there are 16 possible scenarios.
+    sensors = history[-1]
     if sensors = [0,0,0,0]: #Completely Surrounded
         print "Trapped!"
     elif sensors = [0,0,0,1]: #Walls Front, Right, Behind
@@ -115,9 +120,18 @@ def logic(sensors):
         print "Wall Left. Turning around."
         con.right()
         time.sleep(2)
-    elif sensors = [1,1,1,1]: #No walls/points of reference.
+    else: #No walls/points of reference.
         print "No Wall Aquired. Finding Wall."
         con.forward()
+    if for i in history i == history[0]:
+        print "Error: No Change in 3 seconds. Stopping"
+        stopAll()
+        startStop()
+
+
+##########################
+########## Run ###########
+##########################
 
 
 def sensorRead(): #reads the digital sensor inputs and contains movement autonomy
@@ -126,20 +140,19 @@ def sensorRead(): #reads the digital sensor inputs and contains movement autonom
     sensors.append(RPL.digitalRead(starboard_sensor_pin))
     sensors.append(RPL.digitalRead(back_sensor_pin))
     sensors.append(RPL.digitalRead(port_sensor_pin))
+    history.append(sensors)
+    if len(history) == 13:
+        del history[0]
     gui(sensors)
-    logic(sensors)
-
-
-
-
+    logic(history)
 
 tState = time.time()
-
 def timeInterval(interval = 0.25): #controls the time intervals that the sensors and ai refresh at
   global tState
   if time.time() - tState > interval:
     sensorRead()
     tState = time.time()
-
+def pause():
+    raw_input("Enter any key to continue")
 while True: #run function
     timeInterval()
