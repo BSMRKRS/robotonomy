@@ -7,8 +7,8 @@ import control as con
 #####################
 
 #sensor pins
-analogue_pin = 16
-back_sensor_pin = 17
+analogue_pin = 17
+back_sensor_pin = 16
 starboard_sensor_pin = 18
 port_sensor_pin = 19
 front_sensor_pin = 23
@@ -41,10 +41,10 @@ def userInterface(): #reads the digital sensor inputs and contains movement auto
   frontSensorRead = RPL.digitalRead(front_sensor_pin)
   print "Front: %d"  %frontSensorRead
   print "Back: %d"  %backSensorRead
-  if frontSensorRead == 0:
+  if frontSensorRead == 1:
       con.forward()
       print "forward"
-  elif frontSensorRead == 1 and backSensorRead == 0:
+  elif frontSensorRead == 0 and backSensorRead == 1:
       con.reverse()
       print "reverse"
   else:
