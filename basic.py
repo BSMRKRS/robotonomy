@@ -36,7 +36,7 @@ def userInterface(): #reads the digital sensor inputs and contains movement auto
   #leftSensor = RPL.digitalRead(port_sensor)
   backSensorRead = RPL.digitalRead(back_sensor_pin)
   frontSensorRead = RPL.digitalRead(front_sensor_pin)
-  print "Front: %d"  %frontSensorReadSensor
+  print "Front: %d"  %frontSensorRead
   print "Back: %d"  %backSensorRead
   if frontSensorRead == 0:
       con.forward()
