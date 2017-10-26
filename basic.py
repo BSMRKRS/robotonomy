@@ -34,11 +34,11 @@ def stopAll():
 
 def userInterface(): #reads the digital sensor inputs and contains movement autonomy
   print("\033c")
-  starboardSensorRead = RPL.digitalRead(starboard_sensor)
-  portSensorRead = RPL.digitalRead(port_sensor)
+  starboardSensorRead = RPL.digitalRead(starboard_sensor_pin)
+  portSensorRead = RPL.digitalRead(port_sensor_pin)
   backSensorRead = RPL.digitalRead(back_sensor_pin)
   frontSensorRead = RPL.digitalRead(front_sensor_pin)
-  print "Front: %d"  %frontSensorRead
+  print "Front: %d" %frontSensorRead
   print "Back: %d"  %backSensorRead
   print "Left: %d"  %portSensorRead
   print "Right: %d" %starboardSensorRead
