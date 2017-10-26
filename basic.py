@@ -7,10 +7,9 @@ import control as con
 #####################
 
 #sensor pins
-analogue_pin = 17
 back_sensor_pin = 16
-starboard_sensor_pin = 18
-port_sensor_pin = 19
+starboard_sensor_pin = 17
+port_sensor_pin = 18
 front_sensor_pin = 23
 
 #servo pins
@@ -35,16 +34,26 @@ def stopAll():
 
 def userInterface(): #reads the digital sensor inputs and contains movement autonomy
   print("\033c")
-  #rightSensor = RPL.digitalRead(starboard_sensor)
-  #leftSensor = RPL.digitalRead(port_sensor)
+  starboardSensorRead = RPL.digitalRead(starboard_sensor)
+  portSensorRead = RPL.digitalRead(port_sensor)
   backSensorRead = RPL.digitalRead(back_sensor_pin)
   frontSensorRead = RPL.digitalRead(front_sensor_pin)
   print "Front: %d"  %frontSensorRead
   print "Back: %d"  %backSensorRead
-  if frontSensorRead == 1:
+  print "Left: %d"  %portSensorRead
+  print "Right: %d" %starboardSensorRead
+  if starboardSensorRead == 1:
+      con.left()
+      time.sleep(0.5)
       con.forward()
+      print "searching for wall"
+  elif starboardSensorRead == 0 and frontSensorRead == 1:
+      con.forward
       print "forward"
-  elif frontSensorRead == 0 and backSensorRead == 1:
+  elif starboardSensorRead == 0 and frontSensorRead == 0 and portSensorRead == 1:
+      con.left()
+      print "avoiding wall ahead and right"
+  elif frontSensorRead == 0 and backSensorRead == 1 and starboardSensorRead == 0 and portSensorRead == 0:
       con.reverse()
       print "reverse"
   else:
