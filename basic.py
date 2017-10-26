@@ -34,7 +34,7 @@ def userInterface(): #reads the digital sensor inputs and contains movement auto
   print("\033c")
   #rightSensor = RPL.digitalRead(starboard_sensor)
   #leftSensor = RPL.digitalRead(port_sensor)
-  backSensorRead = RPL.digitalRead(back_sensor)
+  backSensorRead = RPL.digitalRead(back_sensor_pin)
   frontSensorRead = RPL.digitalRead(front_sensor_pin)
   print "Front: %d"  %frontSensorReadSensor
   print "Back: %d"  %backSensorRead
