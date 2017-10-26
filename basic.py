@@ -43,7 +43,7 @@ def userInterface(): #reads the digital sensor inputs and contains movement auto
   print "Left: %d"  %portSensorRead
   print "Right: %d" %starboardSensorRead
   if starboardSensorRead == 1:
-      con.left()
+      con.right()
       time.sleep(0.5)
       con.forward()
       print "searching for wall"
