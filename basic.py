@@ -100,7 +100,7 @@ def userInterface(): #reads the digital sensor inputs and contains movement auto
         print "Wall Left. Turning around."
         con.right()
         time.sleep(2)
-    elif sensors = [1,1,1,1]:
+    elif sensors = [1,1,1,1]: #No walls/points of reference.
         print "No Wall Aquired. Finding Wall."
         con.forward()
 
