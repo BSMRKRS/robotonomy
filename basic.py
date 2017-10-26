@@ -40,7 +40,7 @@ def userInterface(): #reads the digital sensor inputs and contains movement auto
   print "Back: %d"  %backSensorRead
   if frontSensorRead == 0:
       con.forward()
-  elif frontSensorRead == 1 and backSensorRead = 0:
+  elif frontSensorRead == 1 and backSensorRead == 0:
       con.backward()
   else:
       con.stopAll()
