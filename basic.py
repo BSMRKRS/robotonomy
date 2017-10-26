@@ -29,6 +29,9 @@ RPL.pinMode(19,RPL.INPUT)
 ##########################
 #####control functions####
 ##########################
+def stopAll():
+    RPL.servoWrite(left_servo_pin,1500)
+    RPL.servoWrite(right_servo_pin,1500)
 
 def userInterface(): #reads the digital sensor inputs and contains movement autonomy
   print("\033c")
@@ -40,10 +43,13 @@ def userInterface(): #reads the digital sensor inputs and contains movement auto
   print "Back: %d"  %backSensorRead
   if frontSensorRead == 0:
       con.forward()
+      print "forward"
   elif frontSensorRead == 1 and backSensorRead == 0:
       con.reverse()
+      print "reverse"
   else:
-      con.stopAll()
+      stopAll()
+      print "stop"
 
 tState = time.time()
 
