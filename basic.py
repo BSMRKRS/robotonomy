@@ -28,10 +28,16 @@ RPL.pinMode(19,RPL.INPUT)
 ##########################
 #####control functions####
 ##########################
-def stopAll():
+def stopAll(): #Stops the vehicle
     RPL.servoWrite(left_servo_pin,1500)
     RPL.servoWrite(right_servo_pin,1500)
-def gui(sensor):
+
+def gui(sensor): #Draws a visual representation of the cars surroundings
+    print("\033c")
+    print "Front: %d" %frontSensorRead
+    print "Right: %d" %starboardSensorRead
+    print "Back: %d"  %backSensorRead
+    print "Left: %d"  %portSensorRead
     if sensor[0] == 0:
         print """____"""
     else:
@@ -53,23 +59,10 @@ def gui(sensor):
     else:
         print """    """
 
-def userInterface(): #reads the digital sensor inputs and contains movement autonomy
-    print("\033c")
-    sensors = []
-    sensors.append(RPL.digitalRead(front_sensor_pin))
-    sensors.append(RPL.digitalRead(starboard_sensor_pin))
-    sensors.append(RPL.digitalRead(back_sensor_pin))
-    sensors.append(RPL.digitalRead(port_sensor_pin))
-
-    print "Front: %d" %frontSensorRead
-    print "Right: %d" %starboardSensorRead
-    print "Back: %d"  %backSensorRead
-    print "Left: %d"  %portSensorRead
-    gui(sensors)
-
 #######################
 ######## Logic ########
 #######################
+def logic(sensors):
     if sensors = [0,0,0,0]: #Completely Surrounded
         print "Trapped!"
     elif sensors = [0,0,0,1]: #Walls Front, Right, Behind
@@ -127,13 +120,26 @@ def userInterface(): #reads the digital sensor inputs and contains movement auto
         con.forward()
 
 
+def sensorRead(): #reads the digital sensor inputs and contains movement autonomy
+    sensors = []
+    sensors.append(RPL.digitalRead(front_sensor_pin))
+    sensors.append(RPL.digitalRead(starboard_sensor_pin))
+    sensors.append(RPL.digitalRead(back_sensor_pin))
+    sensors.append(RPL.digitalRead(port_sensor_pin))
+    gui(sensors)
+    logic(sensors)
+
+
+
+
+
 tState = time.time()
 
-def post(interval = 0.25): #controls the time intervals that the sensors and ai refresh at
+def timeInterval(interval = 0.25): #controls the time intervals that the sensors and ai refresh at
   global tState
   if time.time() - tState > interval:
-    userInterface()
+    sensorRead()
     tState = time.time()
 
 while True: #run function
-    post()
+    timeInterval()
