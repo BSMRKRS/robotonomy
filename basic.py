@@ -118,7 +118,7 @@ def logic(history): #With four binary sensors, there are 16 possible scenarios.
         con.right()
     elif sensors == [1,1,0,1]: #Wall Behind.
         print "Wall Behind. Turning Right."
-        con.forwards()
+        con.forward()
         time.sleep(0.5)
         con.right()
     elif sensors == [1,1,1,0]: #Wall Left
