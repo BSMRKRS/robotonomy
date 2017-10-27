@@ -70,16 +70,18 @@ def logic(history): #With four binary sensors, there are 16 possible scenarios.
     sensors = history[-1]
     if sensors == [0,0,0,0]: #Completely Surrounded
         print "Trapped!"
+        stopAll()
     elif sensors == [0,0,0,1]: #Walls Front, Right, Behind
         print "Attempting to escape left"
         con.left()
     elif sensors == [0,0,1,0]: #Walls Front, Right, Left
         print "Dead End. Reversing."
         con.reverse()
-        time.sleep(3)
+        time.sleep(4)
     elif sensors == [0,0,1,1]: #Walls Front, Right. Front Right Corner
         print " Front Right Corner. Turning Left"
         con.left()
+        time.sleep(0.5)
     elif sensors == [0,1,0,0]: #Walls Front, Behind, Left. Parral Parked Left
         print "Attempting to escape Right."
         con.right()
@@ -128,6 +130,9 @@ def logic(history): #With four binary sensors, there are 16 possible scenarios.
     else: #No walls/points of reference.
         print "No Wall Aquired. Finding Wall."
         con.forward()
+        time.sleep(0.5)
+        con.right()
+        time.sleep(2)
     #stuck = 0
     #for i in history:
     #    if history[i] == history[0] and history[11,0] == 0:
