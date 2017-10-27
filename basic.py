@@ -98,7 +98,9 @@ def logic(history): #With four binary sensors, there are 16 possible scenarios.
         con.reverse()
         time.sleep(0.25)
         con.left()
-        time.sleep(3)
+        time.sleep(2)
+        con.forward()
+        time.sleep(0.5)
     elif sensors == [1,0,0,0]: #Walls Behind, Left, Right
         print "Backed in. Escaping forward"
         con.forward
