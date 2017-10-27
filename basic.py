@@ -98,6 +98,7 @@ def logic(history): #With four binary sensors, there are 16 possible scenarios.
         con.reverse()
         time.sleep(0.25)
         con.left()
+        time.sleep(3)
     elif sensors == [1,0,0,0]: #Walls Behind, Left, Right
         print "Backed in. Escaping forward"
         con.forward
@@ -119,7 +120,7 @@ def logic(history): #With four binary sensors, there are 16 possible scenarios.
     elif sensors == [1,1,1,0]: #Wall Left
         print "Wall Left. Turning around."
         con.right()
-        time.sleep(2)
+        time.sleep(3)
     else: #No walls/points of reference.
         print "No Wall Aquired. Finding Wall."
         con.forward()
@@ -160,5 +161,6 @@ def timeInterval(interval = 0.25): #controls the time intervals that the sensors
     tState = time.time()
 def pause():
     raw_input("Enter any key to continue")
+pause()
 while True: #run function
     timeInterval()
