@@ -38,10 +38,10 @@ def stopAll(): #Stops the vehicle
 ##########################
 def gui(sensor): #Draws a visual representation of the cars surroundings
     print("\033c")
-    print "Front: %d" %frontSensorRead
-    print "Right: %d" %starboardSensorRead
-    print "Back: %d"  %backSensorRead
-    print "Left: %d"  %portSensorRead
+    print "Front: %d" %sensor[0]
+    print "Right: %d" %sensor[1]
+    print "Back: %d"  %sensor[2]
+    print "Left: %d"  %sensor[3]
     if sensor[0] == 0:
         print """ ___"""
     else:
