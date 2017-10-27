@@ -68,55 +68,55 @@ def gui(sensor): #Draws a visual representation of the cars surroundings
 #######################
 def logic(history): #With four binary sensors, there are 16 possible scenarios.
     sensors = history[-1]
-    if sensors = [0,0,0,0]: #Completely Surrounded
+    if sensors == [0,0,0,0]: #Completely Surrounded
         print "Trapped!"
-    elif sensors = [0,0,0,1]: #Walls Front, Right, Behind
+    elif sensors == [0,0,0,1]: #Walls Front, Right, Behind
         print "Attempting to escape left"
         con.left()
-    elif sensors = [0,0,1,0]: #Walls Front, Right, Left
+    elif sensors == [0,0,1,0]: #Walls Front, Right, Left
         print "Dead End. Reversing."
         con.reverse()
         time.sleep(3)
-    elif sensors = [0,0,1,1]: #Walls Front, Right. Front Right Corner
+    elif sensors == [0,0,1,1]: #Walls Front, Right. Front Right Corner
         print " Front Right Corner. Turning Left"
         con.left()
-    elif sensors = [0,1,0,0]: #Walls Front, Behind, Left. Parral Parked Left
+    elif sensors == [0,1,0,0]: #Walls Front, Behind, Left. Parral Parked Left
         print "Attempting to escape Right."
         con.right()
         time.sleep(0.25)
         con.reverse()
-    elif sensors = [0,1,0,1]: #Walls Front, Behind.
+    elif sensors == [0,1,0,1]: #Walls Front, Behind.
         print "Blocked front and back. Escaping Right"
         con.right()
         time.sleep(0.25)
         con.reverse()
-    elif sensors = [0,1,1,0]: #Walls Front, Left.
+    elif sensors == [0,1,1,0]: #Walls Front, Left.
         print "Blocked Front and Left."
         con.right()
-    elif sensors = [0,1,1,1]: #Wall Front.
+    elif sensors == [0,1,1,1]: #Wall Front.
         print "Wall ahead. Turning left."
         con.reverse()
         time.sleep(0.25)
         con.left()
-    elif sensors = [1,0,0,0]: #Walls Behind, Left, Right
+    elif sensors == [1,0,0,0]: #Walls Behind, Left, Right
         print "Backed in. Escaping forward"
         con.forward
-    elif sensors = [1,0,0,1]: #Walls Right, Behind. Back Right Corner.
+    elif sensors == [1,0,0,1]: #Walls Right, Behind. Back Right Corner.
         print "Right Wall found. Proceeding Forward."
         con.forward
-    elif sensors = [1,0,1,0]: #Walls Right, Left. Cooridor.
+    elif sensors == [1,0,1,0]: #Walls Right, Left. Cooridor.
         print "In a cooridor. Proceeding Forward."
         con.forward()
-    elif sensors = [1,0,1,1]: #Wall Right.
+    elif sensors == [1,0,1,1]: #Wall Right.
         print "Right Wall found. Proceeding Forward."
         con.forward()
-    elif sensors = [1,1,0,0]: #Wall Behind, Left. Back Left Corner
+    elif sensors == [1,1,0,0]: #Wall Behind, Left. Back Left Corner
         print "Wall Behind and Left. Turning Right."
         con.right()
-    elif sensors = [1,1,0,1]: #Wall Behind.
+    elif sensors == [1,1,0,1]: #Wall Behind.
         print "Wall Behind. Turning Right."
         con.right()
-    elif sensors = [1,1,1,0]: #Wall Left
+    elif sensors == [1,1,1,0]: #Wall Left
         print "Wall Left. Turning around."
         con.right()
         time.sleep(2)
