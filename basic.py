@@ -127,10 +127,10 @@ def logic(history): #With four binary sensors, there are 16 possible scenarios.
     for i in history:
         if history[i] == history[0] and history[11,0] == 0:
             stuck +=1
-                if stuck >= 11:
-                    print "Error: No Change in 3 seconds. Stopping"
-                    stopAll()
-                    startStop()
+        if stuck >= 11:
+            print "Error: No Change in 3 seconds. Stopping"
+            stopAll()
+            startStop()
 
 
 ##########################
