@@ -67,7 +67,7 @@ def gui(sensor): #Draws a visual representation of the cars surroundings
 ######## LOGIC ########
 #######################
 def logic(history): #With four binary sensors, there are 16 possible scenarios.
-    sensors = history[-1]
+    sensors = history
     if sensors == [0,0,0,0]: #Completely Surrounded
         print "Trapped!"
         stopAll()
