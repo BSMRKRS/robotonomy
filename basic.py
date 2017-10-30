@@ -140,12 +140,14 @@ def logic(history): #With four binary sensors, there are 16 possible scenarios.
         print "Wall Left. Turning around."
         con.right()
         time.sleep(3)
-    else: #No walls/points of reference.
+    elif sensors == [1,1,1,1]#No walls/points of reference.
         print "No Wall Aquired. Finding Wall."
         con.forward()
         time.sleep(0.25)
         con.right()
         time.sleep(0.5)
+    else:
+        print "ERROR!"
     #stuck = 0
     #for i in history:
     #    if history[i] == history[0] and history[11,0] == 0:
