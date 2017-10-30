@@ -76,8 +76,10 @@ def logic(history): #With four binary sensors, there are 16 possible scenarios.
         con.left()
     elif sensors == [0,0,1,0]: #Walls Front, Right, Left
         print "Dead End. Reversing."
-        while sensorRead()[1] == 0 or sensorRead()[3] == 0:
+        p = sensorRead()
+        while p[1] == 0 or p[3] == 0:
             con.reverse()
+            p = sensorRead()
         if p[1] == 1:
             print "escape right"
             con.right()
@@ -90,6 +92,7 @@ def logic(history): #With four binary sensors, there are 16 possible scenarios.
             time.sleep(2)
             con.forward()
             time.sleep(0.5)
+
     elif sensors == [0,0,1,1]: #Walls Front, Right. Front Right Corner
         print " Front Right Corner. Turning Left"
         con.left()
