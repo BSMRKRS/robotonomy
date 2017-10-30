@@ -76,8 +76,21 @@ def logic(history): #With four binary sensors, there are 16 possible scenarios.
         con.left()
     elif sensors == [0,0,1,0]: #Walls Front, Right, Left
         print "Dead End. Reversing."
-        con.reverse()
-        time.sleep(4)
+        p = sensorRead()
+        while p[1] == 0 or p[3] == 0:
+            con.reverse()
+        if p[1] == 1:
+            print "escape right"
+            con.right()
+            time.sleep(2)
+            con.forward()
+            time.sleep(0.5)
+        else:
+            print "escape left"
+            con.left(2)
+            time.sleep(2)
+            con.forward()
+            time.sleep(0.5)
     elif sensors == [0,0,1,1]: #Walls Front, Right. Front Right Corner
         print " Front Right Corner. Turning Left"
         con.left()
@@ -159,14 +172,17 @@ def sensorRead(): #reads the digital sensor inputs and contains movement autonom
     history.append(sensors)
     if len(history) == 13:
         del history[0]
-    gui(sensors)
-    logic(history)
+    return sensors
+
+def run():
+    gui(sensorRead())
+    logic(sensorRead())
 
 tState = time.time()
 def timeInterval(interval = 0.25): #controls the time intervals that the sensors and ai refresh at
   global tState
   if time.time() - tState > interval:
-    sensorRead()
+    run()
     tState = time.time()
 def pause():
     raw_input("Enter any key to continue")
