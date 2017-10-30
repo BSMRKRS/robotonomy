@@ -76,17 +76,17 @@ def logic(history): #With four binary sensors, there are 16 possible scenarios.
         con.left()
     elif sensors == [0,0,1,0]: #Walls Front, Right, Left
         print "Dead End. Reversing."
-        p = sensorRead()
-        while p[1] == 0 or p[3] == 0:
+        p = sensorRead() #sets temp variable p to current sensor readings
+        while p[1] == 0 or p[3] == 0: #this while loop reverses, and then updates p with current data
             con.reverse()
-            p = sensorRead()
-        if p[1] == 1:
+            p = sensorRead() #This updates p. When p[1] or [3] (R/L) are no longer blocked, the loop stops.
+        if p[1] == 1: #if the right sensor changes first, the vehicle turns right
             print "escape right"
             con.right()
             time.sleep(2)
             con.forward()
             time.sleep(0.5)
-        else:
+        else: #if the left changes, it turns left.
             print "escape left"
             con.left(2)
             time.sleep(2)
