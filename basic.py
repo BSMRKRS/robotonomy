@@ -66,6 +66,7 @@ def gui(sensor): #Draws a visual representation of the cars surroundings
 #######################
 ######## LOGIC ########
 #######################
+
 def logic(history): #With four binary sensors, there are 16 possible scenarios.
     sensors = history
     if sensors == [0,0,0,0]: #Completely Surrounded
@@ -98,7 +99,9 @@ def logic(history): #With four binary sensors, there are 16 possible scenarios.
 
     elif sensors == [0,0,1,1]: #Walls Front, Right. Front Right Corner
         print " Front Right Corner. Turning Left"
-        con.left()
+        con.reverse()
+        time.sleep(0.5)
+        con.forward_left()
         time.sleep(0.5)
     elif sensors == [0,1,0,0]: #Walls Front, Behind, Left. Parral Parked Left
         print "Attempting to escape Right."
