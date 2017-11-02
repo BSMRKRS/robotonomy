@@ -31,8 +31,8 @@ def deg(rad):
 	return rad * 180 / math.pi
 
 
-x = raw_input("x>")
-y = raw_input("x>")
+x = int(raw_input("x>"))
+y = int(raw_input("y>"))
 a1, a2 = angles(x, y)
 
 print "x=",x
