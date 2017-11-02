@@ -73,7 +73,10 @@ def logic(history): #With four binary sensors, there are 16 possible scenarios.
         stopAll()
     elif sensors == [0,0,0,1]: #Walls Front, Right, Behind
         print "Attempting to escape left"
-        con.left()
+            con.reverse()
+            time.sleep(0.25)
+            con.forward_right()
+            time.sleep(1)
     elif sensors == [0,0,1,0]: #Walls Front, Right, Left
         print "Dead End. Reversing."
         p = sensorRead() #sets temp variable p to current sensor readings
