@@ -102,7 +102,7 @@ def logic(history): #With four binary sensors, there are 16 possible scenarios.
         p = sensorRead()
         while p[2] = 0:
             con.reverse()
-            sensorRead()
+            p = sensorRead()
         con.forward_left()
         time.sleep(2)
     elif sensors == [0,1,0,0]: #Walls Front, Behind, Left. Parral Parked Left
