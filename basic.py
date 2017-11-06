@@ -100,16 +100,20 @@ def logic(history): #With four binary sensors, there are 16 possible scenarios.
     elif sensors == [0,0,1,1]: #Walls Front, Right. Front Right Corner
         print " Front Right Corner. Turning Left"
         p = sensorRead()
-        while p[2] = 0:
+        while p[2] == 0:
             con.reverse()
             p = sensorRead()
         con.forward_left()
         time.sleep(2)
     elif sensors == [0,1,0,0]: #Walls Front, Behind, Left. Parral Parked Left
         print "Attempting to escape Right."
+        temp = time.time()
+        p = sensorRead()
+        while p[2] == 0 and time.time() - temp <= 2:
+            con.reverse()
+            p = sensorRead()
         con.right()
-        time.sleep(0.25)
-        con.reverse()
+        time.sleep(1)
     elif sensors == [0,1,0,1]: #Walls Front, Behind.
         print "Blocked front and back. Escaping Right"
         con.right()
